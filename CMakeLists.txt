@@ -124,12 +124,25 @@ if ( WIN32 )
 endif( WIN32 )
 
 set(GAME_SRC
+  Classes/BGObject.cpp 
+Classes/Robin.cpp 
+Classes/SettingsScene.cpp 
+Classes/SplashScene.cpp 
+Classes/Tube.cpp 
+Classes/GameManager.cpp 
   Classes/AppDelegate.cpp
   Classes/HelloWorldScene.cpp
   ${PLATFORM_SPECIFIC_SRC}
 )
 
 set(GAME_HEADERS
+  Classes/BGObject.h
+Classes/Robin.h
+Classes/SettingsScene.h
+Classes/SplashScene.h
+Classes/Tube.h
+Classes/GameManager.h
+Classes/Constants.h
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
   ${PLATFORM_SPECIFIC_HEADERS}
