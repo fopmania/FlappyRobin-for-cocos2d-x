@@ -13,31 +13,37 @@
 
 #define kRobinStateMoving 0
 #define kRobinStateStopped 1
-#define kRobinStartSpeedY 300 * GETSCALEY * GETSCALEFAC
+#define kRobinStartSpeedY 300
 
-#define GRAVITY -620 * GETSCALEY * GETSCALEFAC
+#define kDesignSizeH    640
+#define kDesignSizeW    960
 
-#define kCloudScaleSlow 0.4 * GETSCALEY
-#define kCloudScaleFast 0.85 * GETSCALEY
-#define kMountScale 0.8 * GETSCALEY
-#define kTreeScale 1.0 * GETSCALEY
+#define kImageSizeH     320
+#define kImageSizeW     480
 
-#define kCloudSpeedSlow 13.0 * GETSCALEY * GETSCALEFAC
-#define kCloudSpeedFast 53.0 * GETSCALEY * GETSCALEFAC
-#define kMountSpeed 30.0 * GETSCALEY * GETSCALEFAC
-#define kTreeSpeed  70.0 * GETSCALEY * GETSCALEFAC
+#define kImageMulti      kDesignSizeH/kImageSizeH
+
+#define kCloudScaleSlow 0.4
+#define kCloudScaleFast 0.85
+#define kMountScale 0.8
+#define kTreeScale 1.0
+
+#define kCloudSpeedSlow 20.0
+#define kCloudSpeedFast 55.0
+#define kMountSpeed 40.0
+#define kTreeSpeed  90.0
 
 #define kRobinStateMoving 0
 #define kRobinStateStopped 1
-#define kRobinStartSpeedY 300 * GETSCALEY * GETSCALEFAC
+#define kRobinStartSpeedY 450
 
-#define GRAVITY -620 * GETSCALEY * GETSCALEFAC
+#define GRAVITY -1000
 
 #define kTubeStateActive 0
 #define kTubeStateInActive 1
-#define kTubeInActiveX -1000 * GETSCALEX * GETSCALEFAC
+#define kTubeInActiveX -1000
 
-#define kTubeSpawnMinTime 2.3
+#define kTubeSpawnMinTime 1.8
 #define kTubeSpawnTimeVariance 8
 
 #define kTubeTypeUpper 0
@@ -45,30 +51,47 @@
 #define kTubeTypePair 2
 #define kTubeTypeNone 3
 
-#define kSingleGapTop 440 * GETSCALEY * GETSCALEFAC
-#define kSingleGapBottom 230 * GETSCALEY * GETSCALEFAC
-#define kSingleGapMax 280 * GETSCALEY * GETSCALEFAC
-#define kSingleGapMin 160 * GETSCALEY * GETSCALEFAC
+#define kGapRatio       1
 
-#define kDoubleGapTop 480 * GETSCALEY * GETSCALEFAC
-#define kDoubleGapBottom 120 * GETSCALEY * GETSCALEFAC
-#define kDoubleGapMax 220 * GETSCALEY * GETSCALEFAC
-#define kDoubleGapMin 140 * GETSCALEY * GETSCALEFAC
 
-#define kTubeMaxUpPixels 180 * GETSCALEY * GETSCALEFAC
+#define kSingleGapTop 440 * kGapRatio
+#define kSingleGapBottom 230 * kGapRatio
+#define kSingleGapMax 280 * kGapRatio
+#define kSingleGapMin 160  * kGapRatio
+
+#define kDoubleGapTop 480 * kGapRatio
+#define kDoubleGapBottom 120 * kGapRatio
+#define kDoubleGapMax 220 * kGapRatio
+#define kDoubleGapMin 140 * kGapRatio
+
+#define kTubeMaxUpPixels 180
 
 #define kFontName	"Marker Felt.ttf"
 
+#define kSplash         "Kratos.png"
 #define kFileBG			"BG-HD.png"
 #define kFileFloor		"Floor-HD.png"
 #define kFileRobin		"Robin-HD.png"
 #define kFileCloud		"Cloud-HD.png"
 #define kFileMount		"Mount-HD.png"
 #define kFileTree		"Tree-HD.png"
+#define kFileTube		"Tube-HD.png"
 
-#define kEffectRobinTap 0
-#define kEffectSuccess 1
-#define kEffectExplosion 2
+#define kFileBGM        "Marimba-music.mp3"
+
+#define kEffectClick     "Button.wav"
+#define kEffectSuccess   "Success1.wav"
+#define kEffectExplosion "Explosion2.wav"
+#define kEffectJump      "Jumping.wav"
+
+#define     US_VOL_MUSIC    "US_VOL_MUSIC"
+#define     US_VOL_EFFECT   "US_VOL_EFFECT"
+#define     US_HIGH_SCORE   "US_HIGH_SCORE"
+
+//#define kEffectClick    0
+//#define kEffectRobinTap 1
+//#define kEffectSuccess  2
+//#define kEffectExplosion 3
 
 #define kSceneGame		0
 #define kSceneSettings	1

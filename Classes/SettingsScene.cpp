@@ -14,6 +14,7 @@
 
 USING_NS_CC;
 
+
 Scene* SettingsScene::createScene()
 {
     // 'scene' is an autorelease object
@@ -40,6 +41,7 @@ bool SettingsScene::init()
 		}
 	
     Size visibleSize = Director::getInstance()->getVisibleSize();
+//    Size visibleSize =  Size(kDesignSizeW, kDesignSizeH);
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	
 	auto bgSprite = Sprite::create(kFileBG);
@@ -49,11 +51,12 @@ bool SettingsScene::init()
 	this->addChild(bgSprite, kindexBG);
 	
 	
-	const float BackButtonBottom = 40 * GETSCALEY * GETSCALEFAC;
-	const float BackButtonLeft = 80 * GETSCALEX * GETSCALEFAC;
-	const float FontSize = 40 * GETSCALEY * GETSCALEFAC;
-	const float GapToAdjust = 140 * GETSCALEY * GETSCALEFAC;
-	const float LeftGap = 120 * GETSCALEY * GETSCALEFAC;
+    float sf = 1.0; //GETSCALEY * GETSCALEFAC;
+    const float BackButtonBottom = 40 * sf;
+	const float BackButtonLeft = 80 * sf;
+    const float FontSize = 40 * sf;
+	const float GapToAdjust = 140 * sf;
+	const float LeftGap = 120 * sf;
 
 	AddLabelVoid(FontSize, "SETTINGS", Vec2(0.5, 1.0), Vec2(visibleSize.width / 2, visibleSize.height - BackButtonBottom));
 	AddLabelVoid(FontSize, "EFFETCS VOL.", Vec2(0.0, 0.5), Vec2(LeftGap, visibleSize.height / 2 + BackButtonBottom));
@@ -85,7 +88,7 @@ bool SettingsScene::init()
 bool SettingsScene::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//	CCLOG("HelloWorld::onTouchBegan x:%f y:%f", touch->getLocation().x, touch->getLocation().y);
 	
-	GameManager::Instance()->PlayEffect(kEffectRobinTap);
+	GameManager::Instance()->PlayEffect(kEffectClick);
 	Point tp = Point(touch->getLocation().x,touch->getLocation().y);
 	
 	if(_backLabel->getBoundingBox().containsPoint(tp)) {
@@ -139,11 +142,18 @@ void SettingsScene::AddLabelVoid(const float fontSize, const char *text,
 
 void SettingsScene::SetLabelValues() {
 	char ValueString[16];
-	sprintf(ValueString, "%d", GameManager::Instance()->GetVol(kVolTypeMusic));
+    int volM = GameManager::Instance()->GetVol(kVolTypeMusic);
+    
+    
+	sprintf(ValueString, "%d", volM);
 	_musicValueLabel->setString(ValueString);
 
+    int volE = GameManager::Instance()->GetVol(kVolTypeEffect);
 	memset(ValueString, 0, sizeof(ValueString));
-	sprintf(ValueString, "%d", GameManager::Instance()->GetVol(kVolTypeEffect));
+	sprintf(ValueString, "%d", volE);
 	_effValueLabel->setString(ValueString);
+    
+    
+    
 }
 

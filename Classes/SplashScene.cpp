@@ -39,20 +39,24 @@ bool SplashScene::init()
         return false;
 		}
 	
-	char FileName[32];
+//	char FileName[32];
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 	
-	GameManager::Instance()->SetUpScaleFactors();
+//	GameManager::Instance()->SetUpScaleFactors();
 	
 //	GETFILENAME(FileName, 32, "BG", ".png");
-	auto bgSprite = Sprite::create(kFileBG);
-	SCALENODE_XY(bgSprite);
+    auto bgSprite = Sprite::create(kSplash);
+//	auto bgSprite = Sprite::create(kFileBG);
+    
+    
+	SCALENODE_Y(bgSprite);
 	bgSprite->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
 	bgSprite->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(bgSprite, kindexBG);
-	
+    
+/*
 //	GETFILENAME(FileName, 32, "Floor", ".png");
 	auto floorSprite = Sprite::create(kFileFloor);
 	SCALENODE_XY(floorSprite);
@@ -78,21 +82,22 @@ bool SplashScene::init()
 	this->addChild(cloud2, kindexRobin);
 	cloud2->setPosition(SCALEPOS(700,500));
 
-	Label *theLabel = Label::createWithTTF("SIMPLE FLAPPY ROBIN", kFontName,
-										   50 * GETSCALEY * GETSCALEFAC);
-	theLabel->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2 +
-							   visibleSize.height / 6));
-	theLabel->setColor(Color3B::RED);
-	this->addChild(theLabel, kindexRobin);
-	
+ 
 	Label *theLabel2 = Label::createWithTTF("... A Tutorial App By BlueFeverSoft", kFontName,
 											30 * GETSCALEY * GETSCALEFAC);
 	theLabel2->setPosition(Vec2(visibleSize.width / 2,
 								visibleSize.height / 2 - visibleSize.height / 4));
 	theLabel2->setColor(Color3B::RED);
 	this->addChild(theLabel2, kindexRobin);
+ */
+    Label *theLabel = Label::createWithTTF("SIMPLE FLAPPY ROBIN", kFontName,
+                                           50);
+    theLabel->setPosition(Vec2(visibleSize.width / 2, visibleSize.height *1.5f / 2 +
+                               visibleSize.height / 6));
+    theLabel->setColor(Color3B::BLUE);
+    this->addChild(theLabel, kindexRobin);
 
-	this->scheduleOnce(schedule_selector(SplashScene::RunGameScreen), 4.0f);
+	this->scheduleOnce(schedule_selector(SplashScene::RunGameScreen), 2.0f);
 	
     return true;
 }

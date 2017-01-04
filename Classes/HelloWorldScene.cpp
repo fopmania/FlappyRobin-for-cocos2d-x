@@ -31,9 +31,9 @@ bool HelloWorld::init()
     }
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
+//    Size visibleSize =  Size(kDesignSizeW, kDesignSizeH);
     Vec2 origin = Director::getInstance()->getVisibleOrigin();
 
-	GameManager::Instance()->SetUpScaleFactors();
 
 	//Widget* ui = GUIReader::getInstance()->widgetFromJsonFile("equip/SampleChangeEquip.json");
 	//ui->setScale(visibleSize.width / 480.0f, visibleSize.height / 320.0f);
@@ -45,21 +45,27 @@ bool HelloWorld::init()
 		"CloseNormal.png",
 		"CloseSelected.png",
 		CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
-
-	pCloseItem->setPosition(Point(origin.x + visibleSize.width - pCloseItem->getContentSize().width / 2,
-		origin.y + pCloseItem->getContentSize().height / 2));
-	Menu* pMenu = Menu::create(pCloseItem, NULL);
+    
+//   pCloseItem->setScale(visibleSize.width / 960.0f, visibleSize.height / 640.0f);
+    SCALENODE_Y(pCloseItem);
+	pCloseItem->setPosition(Point(origin.x + visibleSize.width - pCloseItem->getContentSize().width*pCloseItem->getScale() / 2,
+		origin.y + pCloseItem->getContentSize().height*pCloseItem->getScale() / 2));
+    
+    Menu* pMenu = Menu::create(pCloseItem, NULL);
 	pMenu->setPosition(Point::ZERO);
 	this->addChild(pMenu, kindexFloor+1);
 
-	const float LabelFontSize = 48 * GETSCALEY * GETSCALEFAC;
-	const float ScorePositionX = 24 * GETSCALEY * GETSCALEFAC;
-	const float ScorePositionY = 12 * GETSCALEY * GETSCALEFAC;
-	const float SettingsGap = 24 * GETSCALEY * GETSCALEFAC;
+    float sf = 1.0; //GETSCALEY * GETSCALEFAC;
+	const float LabelFontSize = 40 * sf;
+	const float ScorePositionX = 24 * sf;
+	const float ScorePositionY = 12 * sf;
+	const float SettingsGap = 24 * sf;
 
 	auto bgSprite = Sprite::create(kFileBG);
 	bgSprite->setPosition(Vec2(visibleSize.width / 2, visibleSize.height / 2));
-	bgSprite->setScale(visibleSize.width / 960.0f, visibleSize.height / 640.0f);
+//    bgSprite->setScale(visibleSize.width / kDesignSizeW, visibleSize.height / kDesignSizeH);
+    SCALENODE_Y(bgSprite);
+//	bgSprite->setScale(visibleSize.width / 960.0f, visibleSize.height / 640.0f);
 	bgSprite->setAnchorPoint(Vec2(0.5, 0.5));
 	this->addChild(bgSprite, kindexBG);
 
@@ -67,39 +73,34 @@ bool HelloWorld::init()
 	//GETFILENAME(FileName, 32, "BG", ".png");
 	auto bgFloor = Sprite::create(kFileFloor);
 	bgFloor->setPosition(Vec2(visibleSize.width / 2, 0.0));
-	bgFloor->setScale(visibleSize.width / 960.0f, visibleSize.height / 640.0f);
+//    bgFloor->setScale(visibleSize.width / kDesignSizeW, visibleSize.height / kDesignSizeH);
+	SCALENODE_Y(bgFloor);
 	bgFloor->setAnchorPoint(Vec2(0.5, 0.0));
 	this->addChild(bgFloor, kindexFloor);
 	_floorBottom = bgFloor->getBoundingBox().size.height / 2;
 
-
-	//_robin = Robin::crateWithFileName("Robin-HD.png");
-	//SCALENODE_Y(_robin);
-	//_robin->setPosition(Vec2(visibleSize.width / 3, visibleSize.height / 2));
-	//_robin->setScale(visibleSize.width / 960.0f, visibleSize.height / 640.0f);
-	//_robin->setAnchorPoint(Vec2(0.5, 0.5));
-	//this->addChild(_robin, kIndexRobin);
-
 	_robin = Robin::createWithFileName(kFileRobin);
-	SCALENODE_Y(_robin);
+//    _robin->setScale(visibleSize.width / kDesignSizeW, visibleSize.height / kDesignSizeH);
+    SCALENODE_Y(_robin);
+    CCLOG("Robin BBox Height = %f", ((cocos2d::Rect)_robin->getBoundingBox()).size.height);
 	this->addChild(_robin, kindexRobin);
 	_robin->Reset();
 	_robin->SetParams(visibleSize.height);
 	_robin->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 2));
+    cocos2d::Rect rect = _robin->getBoundingBox();
+    
 
+//    _robin->setScale(<#float scale#>)
+//    _robin->setBoun
+//    ((cocos2d::Rect)_robin->getBoundingBox())
 
-	_scoreLabel = AddLabel(LabelFontSize, "Score 0", Vec2(0.0, 1.0), 
-		Vec2(ScorePositionX, visibleSize.height - ScorePositionY));
-	_highScoreLabel = AddLabel(LabelFontSize, "Best 0", Vec2(0.0, 1.0),
-		Vec2(ScorePositionX, visibleSize.height - ScorePositionY - _scoreLabel->getBoundingBox().size.height));
-	_gameOverLabel = AddLabel(LabelFontSize, "Game Over", Vec2(0.5, 0.5),
-		Vec2(visibleSize.width/2, visibleSize.height /2 ));
-	_startLabel = AddLabel(LabelFontSize, "Tap The Scrren To Start", Vec2(0.5, 0.5),
-		Vec2(visibleSize.width / 2, visibleSize.height *3/5));
-	_settingsLabel = AddLabel(LabelFontSize, "SETTINGS", Vec2(1.0, 1.0),
-		Vec2(visibleSize.width - SettingsGap, visibleSize.height - SettingsGap));
-	_exitLabel = AddLabel(LabelFontSize, "EXIT", Vec2(1.0, 0.0),
-		Vec2(visibleSize.width - SettingsGap, SettingsGap));
+	_scoreLabel = AddLabel(LabelFontSize, "Score 0", Vec2(0.0, 1.0), Vec2(ScorePositionX, visibleSize.height - ScorePositionY));
+	_highScoreLabel = AddLabel(LabelFontSize, "Best 0", Vec2(0.0, 1.0), Vec2(ScorePositionX, visibleSize.height - ScorePositionY - _scoreLabel->getBoundingBox().size.height));
+	_gameOverLabel = AddLabel(LabelFontSize, "Game Over", Vec2(0.5, 0.5), Vec2(visibleSize.width/2, visibleSize.height /2 ));
+	_startLabel = AddLabel(LabelFontSize, "Tap The Scrren To Start", Vec2(0.5, 0.5), Vec2(visibleSize.width / 2, visibleSize.height *3/5));
+	_settingsLabel = AddLabel(LabelFontSize, "SETTINGS", Vec2(1.0, 1.0), Vec2(visibleSize.width - SettingsGap, visibleSize.height - SettingsGap));
+//	_exitLabel = AddLabel(LabelFontSize, "EXIT", Vec2(1.0, 0.0),
+//		Vec2(visibleSize.width - SettingsGap, SettingsGap));
 
 	_gameOverLabel->setVisible(false);
 
@@ -118,9 +119,12 @@ bool HelloWorld::init()
 	_nextSpawnTime = 0.2;
 	_tubes = Vector<Tube*>{30};
 	CreateClouds();
-	_gameScore = 0;
+    _gameScore = 0;
 
 	schedule(schedule_selector(HelloWorld::gameUpdate));
+    
+   
+
 
 	return true;
 }
@@ -150,8 +154,8 @@ void HelloWorld::updateScoreLabel(){
 
 void HelloWorld::updateHighScoreLabel(){
 	char ScoreString[64];
-	sprintf(ScoreString, "Score %d", _gameScore);
-	_scoreLabel->setString(ScoreString);
+    sprintf(ScoreString, "Best %d", GameManager::Instance()->GetHighScore());
+	_highScoreLabel->setString(ScoreString);
 }
 
 
@@ -170,6 +174,9 @@ void HelloWorld::gameUpdate(float dt) {
 		}
 		else {
 			for (auto tube : this->_tubes){
+                
+                
+//                if (_robin->getBoundingBox().intersectsRect(tube->boundingBox())){
 				if (_robin->TubeCollisionBox().intersectsRect(tube->boundingBox())){
 					_gameOver = true;
 					break;
@@ -179,6 +186,10 @@ void HelloWorld::gameUpdate(float dt) {
 						if (tube->getBoundingBox().origin.x + tube->getBoundingBox().size.width <
 							_robin->getBoundingBox().origin.x){
 							tube->Scored = true;
+                            if(tube->pairTube != NULL){
+                                tube->pairTube->Scored = true;
+                            }
+                                
 							_gameScore += 1;
 							GameManager::Instance()->PlayEffect(kEffectSuccess);
 						}
@@ -204,20 +215,21 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//CCLOG("gameOver = %d", _gameOver);
 	if (!_acceptTouches)		return	false;
 
-	GameManager::Instance()->PlayEffect(kEffectRobinTap);
-
 	Point tp = Point(touch->getLocation().x, touch->getLocation().y);
 	if (_settingsLabel->getBoundingBox().containsPoint(tp)){
 		GameManager::Instance()->RunScene(kSceneSettings);
+        return  true;
 	}
 
 
 	if (_gameOver == true) {
 		StartGame();
+        return  true;
 	}
 	else {
 		_robin->SetStartSpeed();
 	}
+    GameManager::Instance()->PlayEffect(kEffectJump);
 	return true;
 }
 
@@ -239,7 +251,7 @@ void HelloWorld::AddCloud(const float speed, const cocos2d::Vec2 position, const
 	BGObject *cloud = BGObject::createWithFileName(fileName);
 	cloud->SetSpeedAndWidth(speed, visibleSize.width);
 	cloud->cocos2d::Node::setPosition(position);
-	cloud->setScale(scale);
+	SCALENODE_Y(cloud);
 	this->addChild(cloud, zIndex);
 	_clouds.pushBack(cloud);
 }
@@ -269,23 +281,23 @@ void HelloWorld::CreateClouds() {
 //	GETFILENAME(FileName, 32, "Cloud", ".png");
 	sprintf(FileName, kFileCloud);
 
-	AddCloud(kCloudSpeedSlow, SCALEPOS(700, 610), kCloudScaleSlow, kindexCloudSlow, FileName);
-	AddCloud(kCloudSpeedSlow, SCALEPOS(150, 570), kCloudScaleSlow, kindexCloudSlow, FileName);
+	AddCloud(kCloudSpeedSlow, Vec2(700, 610), kCloudScaleSlow, kindexCloudSlow, FileName);
+	AddCloud(kCloudSpeedSlow, Vec2(150, 570), kCloudScaleSlow, kindexCloudSlow, FileName);
 
-	AddCloud(kCloudSpeedFast, SCALEPOS(150, 300), kCloudScaleFast, kindexCloudFast, FileName);
-	AddCloud(kCloudSpeedFast, SCALEPOS(400, 500), kCloudScaleFast, kindexCloudFast, FileName);
-	AddCloud(kCloudSpeedFast, SCALEPOS(880, 400), kCloudScaleFast, kindexCloudFast, FileName);
+	AddCloud(kCloudSpeedFast, Vec2(150, 300), kCloudScaleFast, kindexCloudFast, FileName);
+	AddCloud(kCloudSpeedFast, Vec2(400, 500), kCloudScaleFast, kindexCloudFast, FileName);
+	AddCloud(kCloudSpeedFast, Vec2(880, 400), kCloudScaleFast, kindexCloudFast, FileName);
 
 	sprintf(FileName, kFileMount);
 //	GETFILENAME(FileName, 32, "Mount", ".png");
-	AddCloud(kMountSpeed, SCALEPOS(300, 170), kMountScale, kindexMount, FileName);
-	AddCloud(kMountSpeed, SCALEPOS(800, 170), kMountScale, kindexMount, FileName);
+	AddCloud(kMountSpeed, Vec2(300, 170), kMountScale, kindexMount, FileName);
+	AddCloud(kMountSpeed, Vec2(800, 170), kMountScale, kindexMount, FileName);
 
 	sprintf(FileName, kFileTree);
 //	GETFILENAME(FileName, 32, "Tree", ".png");
-	AddCloud(kTreeSpeed, SCALEPOS(128, 72), kTreeScale, kindexTree, FileName);
-	AddCloud(kTreeSpeed, SCALEPOS(624, 72), kTreeScale, kindexTree, FileName);
-	AddCloud(kTreeSpeed, SCALEPOS(864, 72), kTreeScale, kindexTree, FileName);
+	AddCloud(kTreeSpeed, Vec2(128, 72), kTreeScale, kindexTree, FileName);
+	AddCloud(kTreeSpeed, Vec2(624, 72), kTreeScale, kindexTree, FileName);
+	AddCloud(kTreeSpeed, Vec2(864, 72), kTreeScale, kindexTree, FileName);
 }
 
 
@@ -359,12 +371,11 @@ void HelloWorld::SpawnTubePair() {
 
 	_lastGetUnderY = TopY;
 
-	SpawnATube(true, TopY);
-	SpawnATube(false, BottomY);
+	SpawnATube(true, TopY)->setPair(SpawnATube(false, BottomY));
 }
 
 
-void HelloWorld::SpawnATube(bool isUpper, float Ypos) {
+Tube *HelloWorld::SpawnATube(bool isUpper, float Ypos) {
 	Tube *tube = getNextTube();
 
 	if (isUpper) {
@@ -377,7 +388,9 @@ void HelloWorld::SpawnATube(bool isUpper, float Ypos) {
 	}
 
 	tube->setPositionY(Ypos);
+    SCALENODE_Y(tube);
 	tube->Start();
+    return tube;
 }
 
 
@@ -390,7 +403,7 @@ Tube *HelloWorld::getNextTube() {
 	//char FileName[32];
 	//GETFILENAME(FileName, 32, "Tube", ".png");
 	Size visibleSize = Director::getInstance()->getVisibleSize();
-	Tube *newTube = Tube::createWithFileName("Tube-HD.png");
+	Tube *newTube = Tube::createWithFileName(kFileTube);
 	SCALENODE_Y(newTube);
 	newTube->Initialise(kTreeSpeed, visibleSize.width);
 	this->addChild(newTube, kindexTube);
@@ -401,15 +414,22 @@ Tube *HelloWorld::getNextTube() {
 
 void HelloWorld::StartGame(){
 	CCLOG("StartGame");
+    _gameScore = 0;
+    updateScoreLabel();
 	_startLabel->setVisible(false);
+    _robin->setPositionY(_middleY);
 	_robin->State = kRobinStateMoving;
 	_robin->setPositionY(_middleY);
 	_gameOver = false;
 	StartClouds();
+    
+    GameManager::Instance()->StartBGMusic();
+    
 }
 void HelloWorld::StopGame(){
 	_nextSpawnTime = 0.2;
 	StopClouds();
+    GameManager::Instance()->StopBGMusic();
 }
 void HelloWorld::GameOver(){
 	GameManager::Instance()->PlayEffect(kEffectExplosion);
@@ -419,22 +439,19 @@ void HelloWorld::GameOver(){
 	GameManager::Instance()->SetHighScore(_gameScore);
 	StopGame();
 	scheduleOnce(schedule_selector(HelloWorld::ReEnableAfterGameOver), 1.5f);
+    GameManager::Instance()->StopBGMusic();
 }
 void HelloWorld::ReEnableAfterGameOver(float dt){
-	_gameScore = 0;
-	updateScoreLabel();
 	updateHighScoreLabel();
 	_gameOverLabel->setVisible(false);
 	_startLabel->setVisible(true);
 	_acceptTouches = true;
-	_robin->setPositionY(_middleY);
 }
 
 
 
 
-cocos2d::Label* HelloWorld::AddLabel(const float fontSize, const char *text,
-	const cocos2d::Vec2 ancher, const cocos2d::Vec2 poosition){
+cocos2d::Label* HelloWorld::AddLabel(const float fontSize, const char *text, const cocos2d::Vec2 ancher, const cocos2d::Vec2 poosition){
 	Label *theLabel = Label::createWithTTF(text, kFontName, fontSize);
 	theLabel->setAnchorPoint(ancher);;
 	theLabel->setPosition(poosition);

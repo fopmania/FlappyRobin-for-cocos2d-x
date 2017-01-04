@@ -25,9 +25,11 @@ void Robin::Update(float dt)
 
 		float distance = 0;
 		float newSpeed = 0;
+        
+        float gt = GRAVITY;
 
-		distance = _speedY * dt + 0.5 * GRAVITY * dt * dt;
-		newSpeed = _speedY + GRAVITY * dt;
+		distance = _speedY * dt + gt * dt * dt;
+		newSpeed = _speedY + gt * dt;
 
 		this->setPositionY(this->getPositionY() + distance);
 		_speedY = newSpeed;
@@ -57,10 +59,10 @@ void Robin::SetParams(const float tos)
 
 cocos2d::Rect Robin::TubeCollisionBox(){
 	return Rect(
-		this->boundingBox().origin.x + SCALEY(25) * GETSCALEFAC,
-		this->boundingBox().origin.y + SCALEY(5) * GETSCALEFAC,
-		this->boundingBox().size.width - SCALEY(35) * GETSCALEFAC,
-		this->boundingBox().size.height - SCALEY(15) * GETSCALEFAC
+		this->boundingBox().origin.x + 25,
+		this->boundingBox().origin.y + 5,
+		this->boundingBox().size.width - 35,
+		this->boundingBox().size.height - 15
 		);
 }
 

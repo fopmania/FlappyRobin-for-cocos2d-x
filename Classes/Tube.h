@@ -6,13 +6,16 @@ class Tube : public cocos2d::Sprite
 public:
 	int State;
 	bool Scored;
+    
+    Tube *pairTube;
 
 	static Tube* createWithFileName(char *fileName);
 
 	void Start();
 	void Stop();
 	void Initialise(const float speed, const float width);
-
+    
+    void setPair(Tube* tb);
 
 	Tube();
 	~Tube();

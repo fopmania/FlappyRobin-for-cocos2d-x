@@ -53,9 +53,16 @@ void Tube::ReachedDestination() {
 
 
 
-Tube::Tube()
+Tube::Tube() :
+pairTube(NULL)
 {
 }
+
+void Tube::setPair(Tube* tb){
+    pairTube = tb;
+    tb->pairTube = this;
+}
+
 
 
 Tube::~Tube()

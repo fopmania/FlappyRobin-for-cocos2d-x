@@ -13,6 +13,7 @@ AppDelegate::AppDelegate() {
 
 AppDelegate::~AppDelegate() 
 {
+    GameManager::Instance()->Uninit();
 }
 
 void AppDelegate::initGLContextAttrs()
@@ -32,24 +33,39 @@ bool AppDelegate::applicationDidFinishLaunching() {
         director->setOpenGLView(glview);
     }
 
-    director->setOpenGLView(glview);
-
-    // Set the design resolution
-//    glview->setDesignResolutionSize(designResolutionSize.width, designResolutionSize.height, ResolutionPolicy::NO_BORDER);
-    
-    
     // turn on display FPS
     director->setDisplayStats(true);
 
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
-
+    
+    GameManager::Instance()->Init();
+    
 	GameManager::Instance()->LateInit();
 
+    GameManager::Instance()->SetUpScaleFactors();
+    
+    float fact = GameManager::Instance()->GetScaleFactor();
+    CCLOG("ScaleFactor = %f", fact);
+    director->setContentScaleFactor(fact);
+
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_WP8)
+    // a bug in DirectX 11 level9-x on the device prevents ResolutionPolicy::NO_BORDER from working correctly
+    glview->setDesignResolutionSize(kDesignSizeW, kDesignSizeH, ResolutionPolicy::SHOW_ALL);
+#else
+    glview->setDesignResolutionSize(kDesignSizeW, kDesignSizeH, ResolutionPolicy::EXACT_FIT);
+#endif
+    CCLOG("DesignSizeW = %d, kDesignSizeH = %d", kDesignSizeW, kDesignSizeH);
+    
+    // Enable Remote Console
+    auto console = director->getConsole();
+    console->listenOnTCP(5678);
+    
 /*
     auto scene = HelloWorld::createScene();
     director->runWithScene(scene);
 	*/
+    
 	GameManager::Instance()->RunScene(kSceneSplash);
     return true;
 }

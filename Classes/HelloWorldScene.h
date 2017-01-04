@@ -28,7 +28,7 @@ private :
 	cocos2d::Vector<Tube*> _tubes;
 	cocos2d::Label *_scoreLabel;
 	cocos2d::Label *_highScoreLabel;
-	cocos2d::Label *_exitLabel;
+//	cocos2d::Label *_exitLabel;
 	cocos2d::Label *_startLabel;
 	cocos2d::Label *_gameOverLabel;
 	cocos2d::Label *_settingsLabel;
@@ -53,7 +53,7 @@ private :
 	void SpawnNewTubes();
 	void SpawnUpperOrLower(bool isUpper);
 	void SpawnTubePair();
-	void SpawnATube(bool isUpper, float Ypos);
+	Tube *SpawnATube(bool isUpper, float Ypos);
 	Tube *getNextTube();
 
 	void StartGame();

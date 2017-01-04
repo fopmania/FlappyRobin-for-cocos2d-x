@@ -4,7 +4,9 @@ class GameManager
 public:
 	static GameManager* Instance();
 
-
+    void Init();
+    void Uninit();
+    
 	float GetScaleX();
 	float GetScaleY();
 	float GetScaleFactor();
@@ -15,16 +17,19 @@ public:
 
 	void LateInit();
 
-	void PlayEffect(const int num);
+//	void PlayEffect(const int num);
+    void PlayEffect(const char* name);
 	void RunScene(const int sceneNum);
 
 	int GetVol(const int volType);
 	void SetVol(const int volType, const int val);
 	void StartBGMusic();
+    void StopBGMusic();
 
 	int GetHighScore();
 	void SetHighScore(const int score);
-
+    
+    void SaveSettings(int volM, int volE);
 
 private:
 	GameManager() {};
@@ -32,8 +37,8 @@ private:
 	GameManager& operator=(GameManager const&) {};
 
 
-	void PreLoadEffect(const char* name, const int num);
-	void PlayEffectName(const char* name, const int num);
+//	void PreLoadEffect(const char* name, const int num);
+//	void PlayEffectName(const char* name, const int num);
 
 	static GameManager* _Instance;
 
@@ -65,9 +70,20 @@ private:
 	(GameManager::Instance()->GetFileName(a, l, n, e))
 
 #define SCALENODE_XY(n) \
-	n->setScaleX(GETSCALEX); \
-	n->setScaleY(GETSCALEY)
+	n->setScaleX(GETSCALEX*kImageMulti); \
+	n->setScaleY(GETSCALEY*kImageMulti)
 
 #define SCALENODE_Y(n) \
-	n->setScaleX(GETSCALEY)
+    n->setScale(GETSCALEY);
+
+
+#define SCALENODE_YM(n) \
+    n->setScaleX(GETSCALEY*kImageMulti); \
+    n->setScaleY(GETSCALEY*kImageMulti)
+
+
+#define SCALENODE_X(n) \
+    n->setScaleX(GETSCALEX);
+
+
 
