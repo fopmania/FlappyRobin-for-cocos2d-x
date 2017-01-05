@@ -44,13 +44,13 @@ void Robin::Update(float dt)
 void Robin::Reset()
 {
 	State = kRobinStateStopped;
-	SetStartSpeed();
+	SetStartSpeed(0);
 //	Size visibleSize = Director::getInstance()->getVisibleSize();
 //	this->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 2));
 }
-void Robin::SetStartSpeed()
+void Robin::SetStartSpeed(float addSpeed)
 {
-	_speedY = kRobinStartSpeedY;
+	_speedY = kRobinStartSpeedY + addSpeed;
 }
 void Robin::SetParams(const float tos)
 {
@@ -59,10 +59,10 @@ void Robin::SetParams(const float tos)
 
 cocos2d::Rect Robin::TubeCollisionBox(){
 	return Rect(
-		this->boundingBox().origin.x + 25,
-		this->boundingBox().origin.y + 5,
-		this->boundingBox().size.width - 35,
-		this->boundingBox().size.height - 15
+		this->getBoundingBox().origin.x + 25,
+		this->getBoundingBox().origin.y + 5,
+		this->getBoundingBox().size.width - 35,
+		this->getBoundingBox().size.height - 15
 		);
 }
 

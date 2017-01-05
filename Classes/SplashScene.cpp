@@ -29,6 +29,12 @@ Scene* SplashScene::createScene()
     return scene;
 }
 
+
+void SplashScene::onEnter(){
+    cocos2d::Layer::onEnter();
+    
+}
+
 // on "init" you need to initialize your instance
 bool SplashScene::init()
 {
@@ -38,7 +44,10 @@ bool SplashScene::init()
 		{
         return false;
 		}
-	
+
+    auto bg = LayerColor::create(Color4B(255,255,255,255));
+    addChild(bg);
+    
 //	char FileName[32];
     
     Size visibleSize = Director::getInstance()->getVisibleSize();
@@ -90,8 +99,7 @@ bool SplashScene::init()
 	theLabel2->setColor(Color3B::RED);
 	this->addChild(theLabel2, kindexRobin);
  */
-    Label *theLabel = Label::createWithTTF("SIMPLE FLAPPY ROBIN", kFontName,
-                                           50);
+    Label *theLabel = Label::createWithTTF("SIMPLE FLAPPY ROBIN", kFontName1, 50);
     theLabel->setPosition(Vec2(visibleSize.width / 2, visibleSize.height *1.5f / 2 +
                                visibleSize.height / 6));
     theLabel->setColor(Color3B::BLUE);

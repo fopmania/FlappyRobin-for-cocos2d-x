@@ -24,6 +24,7 @@ void AppDelegate::initGLContextAttrs()
 }
 
 
+
 bool AppDelegate::applicationDidFinishLaunching() {
     // initialize director
     auto director = Director::getInstance();
@@ -39,6 +40,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     // set FPS. the default value is 1.0/60 if you don't call this
     director->setAnimationInterval(1.0 / 60);
     
+   
     GameManager::Instance()->Init();
     
 	GameManager::Instance()->LateInit();

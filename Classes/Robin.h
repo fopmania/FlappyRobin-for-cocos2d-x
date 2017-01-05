@@ -8,7 +8,7 @@ public:
 	static Robin* createWithFileName(char *fileName);
 	void Update(float dt);
 	void Reset();
-	void SetStartSpeed();
+	void SetStartSpeed(float addSpeed);
 	void SetParams(const float tos);
 	cocos2d::Rect TubeCollisionBox();
 

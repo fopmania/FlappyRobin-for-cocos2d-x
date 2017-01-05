@@ -13,7 +13,6 @@
 
 #define kRobinStateMoving 0
 #define kRobinStateStopped 1
-#define kRobinStartSpeedY 300
 
 #define kDesignSizeH    640
 #define kDesignSizeW    960
@@ -28,16 +27,16 @@
 #define kMountScale 0.8
 #define kTreeScale 1.0
 
-#define kCloudSpeedSlow 20.0
-#define kCloudSpeedFast 55.0
-#define kMountSpeed 40.0
-#define kTreeSpeed  90.0
+#define kCloudSpeedSlow 30.0
+#define kCloudSpeedFast 65.0
+#define kMountSpeed 50.0
+#define kTreeSpeed  100.0
 
 #define kRobinStateMoving 0
 #define kRobinStateStopped 1
-#define kRobinStartSpeedY 450
+#define kRobinStartSpeedY 500
 
-#define GRAVITY -1000
+#define GRAVITY -1250
 
 #define kTubeStateActive 0
 #define kTubeStateInActive 1
@@ -67,6 +66,9 @@
 #define kTubeMaxUpPixels 180
 
 #define kFontName	"Marker Felt.ttf"
+#define kFontName1	"fonts/04B_30__.ttf"
+#define kFontName2	"fonts/Abduction.ttf"
+#define kFontName3	"fonts/arcadeclassic.ttf"
 
 #define kSplash         "Kratos.png"
 #define kFileBG			"BG-HD.png"

@@ -79,15 +79,6 @@ bool HelloWorld::init()
 	this->addChild(bgFloor, kindexFloor);
 	_floorBottom = bgFloor->getBoundingBox().size.height / 2;
 
-	_robin = Robin::createWithFileName(kFileRobin);
-//    _robin->setScale(visibleSize.width / kDesignSizeW, visibleSize.height / kDesignSizeH);
-    SCALENODE_Y(_robin);
-    CCLOG("Robin BBox Height = %f", ((cocos2d::Rect)_robin->getBoundingBox()).size.height);
-	this->addChild(_robin, kindexRobin);
-	_robin->Reset();
-	_robin->SetParams(visibleSize.height);
-	_robin->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 2));
-    cocos2d::Rect rect = _robin->getBoundingBox();
     
 
 //    _robin->setScale(<#float scale#>)
@@ -98,9 +89,21 @@ bool HelloWorld::init()
 	_highScoreLabel = AddLabel(LabelFontSize, "Best 0", Vec2(0.0, 1.0), Vec2(ScorePositionX, visibleSize.height - ScorePositionY - _scoreLabel->getBoundingBox().size.height));
 	_gameOverLabel = AddLabel(LabelFontSize, "Game Over", Vec2(0.5, 0.5), Vec2(visibleSize.width/2, visibleSize.height /2 ));
 	_startLabel = AddLabel(LabelFontSize, "Tap The Scrren To Start", Vec2(0.5, 0.5), Vec2(visibleSize.width / 2, visibleSize.height *3/5));
-	_settingsLabel = AddLabel(LabelFontSize, "SETTINGS", Vec2(1.0, 1.0), Vec2(visibleSize.width - SettingsGap, visibleSize.height - SettingsGap));
+	_settingsLabel = AddLabel(LabelFontSize, "SET", Vec2(1.0, 1.0), Vec2(visibleSize.width - SettingsGap, visibleSize.height - SettingsGap));
 //	_exitLabel = AddLabel(LabelFontSize, "EXIT", Vec2(1.0, 0.0),
 //		Vec2(visibleSize.width - SettingsGap, SettingsGap));
+    
+    
+    _robin = Robin::createWithFileName(kFileRobin);
+    //    _robin->setScale(visibleSize.width / kDesignSizeW, visibleSize.height / kDesignSizeH);
+    SCALENODE_Y(_robin);
+    CCLOG("Robin BBox Height = %f", ((cocos2d::Rect)_robin->getBoundingBox()).size.height);
+    this->addChild(_robin, kindexRobin);
+    _robin->Reset();
+    _robin->SetParams(visibleSize.height);
+    _robin->setPosition(Vec2(visibleSize.width / 4, visibleSize.height / 2));
+    cocos2d::Rect rect = _robin->getBoundingBox();
+    
 
 	_gameOverLabel->setVisible(false);
 
@@ -227,7 +230,12 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event) {
         return  true;
 	}
 	else {
-		_robin->SetStartSpeed();
+        float add = 0.0f;
+        if(_gameScore > 100)        add = 60;
+        else if(_gameScore > 60)    add = 40;
+        else if(_gameScore > 30)    add = 20;
+            
+		_robin->SetStartSpeed(add);
 	}
     GameManager::Instance()->PlayEffect(kEffectJump);
 	return true;
@@ -417,6 +425,7 @@ void HelloWorld::StartGame(){
     _gameScore = 0;
     updateScoreLabel();
 	_startLabel->setVisible(false);
+    _settingsLabel->setVisible(false);
     _robin->setPositionY(_middleY);
 	_robin->State = kRobinStateMoving;
 	_robin->setPositionY(_middleY);
@@ -445,6 +454,7 @@ void HelloWorld::ReEnableAfterGameOver(float dt){
 	updateHighScoreLabel();
 	_gameOverLabel->setVisible(false);
 	_startLabel->setVisible(true);
+    _settingsLabel->setVisible(true);
 	_acceptTouches = true;
 }
 
@@ -452,7 +462,7 @@ void HelloWorld::ReEnableAfterGameOver(float dt){
 
 
 cocos2d::Label* HelloWorld::AddLabel(const float fontSize, const char *text, const cocos2d::Vec2 ancher, const cocos2d::Vec2 poosition){
-	Label *theLabel = Label::createWithTTF(text, kFontName, fontSize);
+	Label *theLabel = Label::createWithTTF(text, kFontName1, fontSize);
 	theLabel->setAnchorPoint(ancher);;
 	theLabel->setPosition(poosition);
 	theLabel->setColor(Color3B::RED);

@@ -52,10 +52,10 @@ bool SettingsScene::init()
 	
 	
     float sf = 1.0; //GETSCALEY * GETSCALEFAC;
-    const float BackButtonBottom = 40 * sf;
+    const float BackButtonBottom = 35 * sf;
 	const float BackButtonLeft = 80 * sf;
-    const float FontSize = 40 * sf;
-	const float GapToAdjust = 140 * sf;
+    const float FontSize = 35 * sf;
+	const float GapToAdjust = 100 * sf;
 	const float LeftGap = 120 * sf;
 
 	AddLabelVoid(FontSize, "SETTINGS", Vec2(0.5, 1.0), Vec2(visibleSize.width / 2, visibleSize.height - BackButtonBottom));
@@ -63,7 +63,7 @@ bool SettingsScene::init()
 
 	_backLabel = AddLabel(FontSize, "BACK", Vec2(0.0,0.0), Vec2(BackButtonLeft, BackButtonBottom));
 	
-	_effVolPlusLabel = AddLabel(FontSize, "+", Vec2(1.0, 0.5), Vec2(visibleSize.width - LeftGap, visibleSize.height / 2 + BackButtonBottom));
+	_effVolPlusLabel = AddLabel(FontSize, "+", Vec2(0.5, 0.5), Vec2(visibleSize.width - LeftGap, visibleSize.height / 2 + BackButtonBottom));
 	_effValueLabel = AddLabel(FontSize, "0", Vec2(0.5, 0.5), Vec2(_effVolPlusLabel->getBoundingBox().origin.x - GapToAdjust, visibleSize.height / 2 + BackButtonBottom));
 	_effVolMinusLabel = AddLabel(FontSize, "-", Vec2(0.5, 0.5), Vec2(_effValueLabel->getBoundingBox().origin.x - GapToAdjust, visibleSize.height / 2 + BackButtonBottom));
 
@@ -120,7 +120,7 @@ void SettingsScene::IncVol(const int type, const int inc){
 
 Label* SettingsScene::AddLabel(const float fontSize, const char *text,
 							const cocos2d::Vec2 anchor, const cocos2d::Vec2 position) {
-	Label *theLabel = Label::createWithTTF(text, kFontName, fontSize);
+	Label *theLabel = Label::createWithTTF(text, kFontName1, fontSize);
 	theLabel->setAnchorPoint(anchor);
 	theLabel->setPosition(position);
 	theLabel->setColor(Color3B::RED);
@@ -131,7 +131,7 @@ Label* SettingsScene::AddLabel(const float fontSize, const char *text,
 
 void SettingsScene::AddLabelVoid(const float fontSize, const char *text,
 							   const cocos2d::Vec2 anchor, const cocos2d::Vec2 position) {
-	Label *theLabel = Label::createWithTTF(text, kFontName, fontSize);
+	Label *theLabel = Label::createWithTTF(text, kFontName1, fontSize);
 	theLabel->setAnchorPoint(anchor);
 	theLabel->setPosition(position);
 	theLabel->setColor(Color3B::RED);

@@ -19,6 +19,9 @@ private:
 	void RunGameScreen(float dt);
 	
 public:
+    
+    void onEnter() override ;
+    
     // there's no 'id' in cpp, so we recommend returning the class instance pointer
     static cocos2d::Scene* createScene();
 	
