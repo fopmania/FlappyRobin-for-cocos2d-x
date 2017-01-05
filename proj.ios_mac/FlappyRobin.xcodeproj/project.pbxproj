@@ -14,15 +14,11 @@
 		0401DC651E171A1E00809045 /* SplashScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0401DC5D1E171A1E00809045 /* SplashScene.cpp */; };
 		0401DC661E171A1E00809045 /* Tube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0401DC5F1E171A1E00809045 /* Tube.cpp */; };
 		0401DC7E1E171BB100809045 /* BG-HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC6A1E171BB100809045 /* BG-HD.png */; };
-		0401DC7F1E171BB100809045 /* BGMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC6B1E171BB100809045 /* BGMusic.mp3 */; };
 		0401DC801E171BB100809045 /* Cloud-HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC6C1E171BB100809045 /* Cloud-HD.png */; };
 		0401DC811E171BB100809045 /* Explosion1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC6D1E171BB100809045 /* Explosion1.wav */; };
 		0401DC821E171BB100809045 /* Explosion2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC6E1E171BB100809045 /* Explosion2.wav */; };
 		0401DC831E171BB100809045 /* Floor-HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC6F1E171BB100809045 /* Floor-HD.png */; };
-		0401DC841E171BB100809045 /* arial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC711E171BB100809045 /* arial.ttf */; };
-		0401DC851E171BB100809045 /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC721E171BB100809045 /* Marker Felt.ttf */; };
 		0401DC861E171BB100809045 /* HelloWorld 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC731E171BB100809045 /* HelloWorld 2.png */; };
-		0401DC871E171BB100809045 /* Marker Felt.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC741E171BB100809045 /* Marker Felt.ttf */; };
 		0401DC881E171BB100809045 /* Mount-HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC751E171BB100809045 /* Mount-HD.png */; };
 		0401DC891E171BB100809045 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC771E171BB100809045 /* .gitkeep */; };
 		0401DC8A1E171BB100809045 /* Robin-HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC781E171BB100809045 /* Robin-HD.png */; };
@@ -31,6 +27,11 @@
 		0401DC8D1E171BB100809045 /* Success2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC7B1E171BB100809045 /* Success2.wav */; };
 		0401DC8E1E171BB100809045 /* Tree-HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC7C1E171BB100809045 /* Tree-HD.png */; };
 		0401DC8F1E171BB100809045 /* Tube-HD.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC7D1E171BB100809045 /* Tube-HD.png */; };
+		0401DC961E19E0A000809045 /* Kratos.png in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC951E19E0A000809045 /* Kratos.png */; };
+		0401DC981E1AE25500809045 /* Marimba-music.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC971E1AE25500809045 /* Marimba-music.mp3 */; };
+		0401DC9A1E1AF89500809045 /* Button.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC991E1AF89500809045 /* Button.wav */; };
+		0401DC9C1E1AFF2B00809045 /* Jumping.wav in Resources */ = {isa = PBXBuildFile; fileRef = 0401DC9B1E1AFF2B00809045 /* Jumping.wav */; };
+		042DDC0B1E1DBC61004B9918 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 042DDC0A1E1DBC61004B9918 /* fonts */; };
 		1AC6FB21180E996B004C840B /* libcocos2d Mac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FAF9180E9839004C840B /* libcocos2d Mac.a */; };
 		1AC6FB30180E99EB004C840B /* libcocos2d iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC6FB07180E9839004C840B /* libcocos2d iOS.a */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -70,7 +71,7 @@
 		5087E78517EB970100C73F5D /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77A17EB970100C73F5D /* Icon-72.png */; };
 		5087E78617EB970100C73F5D /* Icon-76.png in Resources */ = {isa = PBXBuildFile; fileRef = 5087E77B17EB970100C73F5D /* Icon-76.png */; };
 		5087E78917EB974C00C73F5D /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78817EB974C00C73F5D /* AppKit.framework */; };
-		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; };
+		5087E78B17EB975400C73F5D /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5087E78A17EB975400C73F5D /* OpenGL.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		50EF629617ECD46A001EB2F8 /* Icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629217ECD46A001EB2F8 /* Icon-40.png */; };
 		50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629317ECD46A001EB2F8 /* Icon-58.png */; };
 		50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */ = {isa = PBXBuildFile; fileRef = 50EF629417ECD46A001EB2F8 /* Icon-80.png */; };
@@ -145,15 +146,11 @@
 		0401DC5F1E171A1E00809045 /* Tube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Tube.cpp; sourceTree = "<group>"; };
 		0401DC601E171A1E00809045 /* Tube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tube.h; sourceTree = "<group>"; };
 		0401DC6A1E171BB100809045 /* BG-HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BG-HD.png"; sourceTree = "<group>"; };
-		0401DC6B1E171BB100809045 /* BGMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = BGMusic.mp3; sourceTree = "<group>"; };
 		0401DC6C1E171BB100809045 /* Cloud-HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Cloud-HD.png"; sourceTree = "<group>"; };
 		0401DC6D1E171BB100809045 /* Explosion1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Explosion1.wav; sourceTree = "<group>"; };
 		0401DC6E1E171BB100809045 /* Explosion2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Explosion2.wav; sourceTree = "<group>"; };
 		0401DC6F1E171BB100809045 /* Floor-HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Floor-HD.png"; sourceTree = "<group>"; };
-		0401DC711E171BB100809045 /* arial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = arial.ttf; sourceTree = "<group>"; };
-		0401DC721E171BB100809045 /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		0401DC731E171BB100809045 /* HelloWorld 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "HelloWorld 2.png"; sourceTree = "<group>"; };
-		0401DC741E171BB100809045 /* Marker Felt.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Marker Felt.ttf"; sourceTree = "<group>"; };
 		0401DC751E171BB100809045 /* Mount-HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Mount-HD.png"; sourceTree = "<group>"; };
 		0401DC771E171BB100809045 /* .gitkeep */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
 		0401DC781E171BB100809045 /* Robin-HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Robin-HD.png"; sourceTree = "<group>"; };
@@ -162,6 +159,11 @@
 		0401DC7B1E171BB100809045 /* Success2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Success2.wav; sourceTree = "<group>"; };
 		0401DC7C1E171BB100809045 /* Tree-HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tree-HD.png"; sourceTree = "<group>"; };
 		0401DC7D1E171BB100809045 /* Tube-HD.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tube-HD.png"; sourceTree = "<group>"; };
+		0401DC951E19E0A000809045 /* Kratos.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kratos.png; sourceTree = "<group>"; };
+		0401DC971E1AE25500809045 /* Marimba-music.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Marimba-music.mp3"; sourceTree = "<group>"; };
+		0401DC991E1AF89500809045 /* Button.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Button.wav; sourceTree = "<group>"; };
+		0401DC9B1E1AFF2B00809045 /* Jumping.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Jumping.wav; sourceTree = "<group>"; };
+		042DDC0A1E1DBC61004B9918 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		1AC6FAE5180E9839004C840B /* cocos2d_libs.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = cocos2d_libs.xcodeproj; path = ../cocos2d/build/cocos2d_libs.xcodeproj; sourceTree = "<group>"; };
 		1ACB3243164770DE00914215 /* libcurl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcurl.a; path = ../../cocos2dx/platform/third_party/ios/libraries/libcurl.a; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -267,15 +269,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0401DC701E171BB100809045 /* fonts */ = {
-			isa = PBXGroup;
-			children = (
-				0401DC711E171BB100809045 /* arial.ttf */,
-				0401DC721E171BB100809045 /* Marker Felt.ttf */,
-			);
-			path = fonts;
-			sourceTree = "<group>";
-		};
 		0401DC761E171BB100809045 /* res */ = {
 			isa = PBXGroup;
 			children = (
@@ -362,15 +355,17 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				042DDC0A1E1DBC61004B9918 /* fonts */,
+				0401DC9B1E1AFF2B00809045 /* Jumping.wav */,
+				0401DC991E1AF89500809045 /* Button.wav */,
+				0401DC971E1AE25500809045 /* Marimba-music.mp3 */,
+				0401DC951E19E0A000809045 /* Kratos.png */,
 				0401DC6A1E171BB100809045 /* BG-HD.png */,
-				0401DC6B1E171BB100809045 /* BGMusic.mp3 */,
 				0401DC6C1E171BB100809045 /* Cloud-HD.png */,
 				0401DC6D1E171BB100809045 /* Explosion1.wav */,
 				0401DC6E1E171BB100809045 /* Explosion2.wav */,
 				0401DC6F1E171BB100809045 /* Floor-HD.png */,
-				0401DC701E171BB100809045 /* fonts */,
 				0401DC731E171BB100809045 /* HelloWorld 2.png */,
-				0401DC741E171BB100809045 /* Marker Felt.ttf */,
 				0401DC751E171BB100809045 /* Mount-HD.png */,
 				0401DC761E171BB100809045 /* res */,
 				0401DC781E171BB100809045 /* Robin-HD.png */,
@@ -505,6 +500,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0500;
+				TargetAttributes = {
+					1D6058900D05DD3D006BFB54 = {
+						DevelopmentTeam = 9X5J83D3UW;
+					};
+				};
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "FlappyRobin" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -563,15 +563,14 @@
 			files = (
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
+				0401DC9A1E1AF89500809045 /* Button.wav in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
 				50EF629917ECD46A001EB2F8 /* Icon-100.png in Resources */,
 				5087E78317EB970100C73F5D /* Icon-152.png in Resources */,
-				0401DC851E171BB100809045 /* Marker Felt.ttf in Resources */,
 				0401DC801E171BB100809045 /* Cloud-HD.png in Resources */,
 				46880B8119C43A67006E1F66 /* HelloWorld.png in Resources */,
 				46880B7D19C43A67006E1F66 /* CloseSelected.png in Resources */,
 				5087E77D17EB970100C73F5D /* Default-568h@2x.png in Resources */,
-				0401DC871E171BB100809045 /* Marker Felt.ttf in Resources */,
 				0401DC821E171BB100809045 /* Explosion2.wav in Resources */,
 				0401DC831E171BB100809045 /* Floor-HD.png in Resources */,
 				5087E78517EB970100C73F5D /* Icon-72.png in Resources */,
@@ -580,9 +579,7 @@
 				50EF62A317ECD613001EB2F8 /* Icon-50.png in Resources */,
 				0401DC811E171BB100809045 /* Explosion1.wav in Resources */,
 				0401DC861E171BB100809045 /* HelloWorld 2.png in Resources */,
-				0401DC841E171BB100809045 /* arial.ttf in Resources */,
 				5087E78017EB970100C73F5D /* Icon-114.png in Resources */,
-				0401DC7F1E171BB100809045 /* BGMusic.mp3 in Resources */,
 				0401DC8E1E171BB100809045 /* Tree-HD.png in Resources */,
 				50EF62A217ECD613001EB2F8 /* Icon-29.png in Resources */,
 				0401DC8C1E171BB100809045 /* Success1.wav in Resources */,
@@ -594,9 +591,13 @@
 				0401DC8F1E171BB100809045 /* Tube-HD.png in Resources */,
 				0401DC891E171BB100809045 /* .gitkeep in Resources */,
 				50EF629817ECD46A001EB2F8 /* Icon-80.png in Resources */,
+				0401DC961E19E0A000809045 /* Kratos.png in Resources */,
+				042DDC0B1E1DBC61004B9918 /* fonts in Resources */,
 				0401DC8A1E171BB100809045 /* Robin-HD.png in Resources */,
 				5087E78417EB970100C73F5D /* Icon-57.png in Resources */,
 				5087E77E17EB970100C73F5D /* Default.png in Resources */,
+				0401DC9C1E1AFF2B00809045 /* Jumping.wav in Resources */,
+				0401DC981E1AE25500809045 /* Marimba-music.mp3 in Resources */,
 				521A8E6419F0C34300D177D7 /* Default-667h@2x.png in Resources */,
 				46880B7B19C43A67006E1F66 /* CloseNormal.png in Resources */,
 				50EF629717ECD46A001EB2F8 /* Icon-58.png in Resources */,
@@ -667,6 +668,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 9X5J83D3UW;
 				ENABLE_BITCODE = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
@@ -686,7 +688,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos9.3;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
@@ -700,6 +702,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COMPRESS_PNG_FILES = NO;
+				DEVELOPMENT_TEAM = 9X5J83D3UW;
 				ENABLE_BITCODE = NO;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -718,7 +721,7 @@
 					"$(_COCOS_LIB_IOS_BEGIN)",
 					"$(_COCOS_LIB_IOS_END)",
 				);
-				SDKROOT = iphoneos;
+				SDKROOT = iphoneos9.3;
 				STRIP_PNG_TEXT = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(_COCOS_HEADER_IOS_BEGIN) $(_COCOS_HEADER_IOS_END)";
