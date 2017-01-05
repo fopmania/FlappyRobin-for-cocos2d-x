@@ -32,6 +32,7 @@ private :
 	cocos2d::Label *_startLabel;
 	cocos2d::Label *_gameOverLabel;
 	cocos2d::Label *_settingsLabel;
+    cocos2d::MenuItemImage   *_close;
 
 
 	float _nextSpawnTime;

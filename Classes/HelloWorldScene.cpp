@@ -41,17 +41,17 @@ bool HelloWorld::init()
 	//Button* btnClose = (Button*)Helper::seekWidgetByName(ui, "closebutton");
 	//btnClose->addTouchEventListener(this, toucheventselector(HelloWorld::CloseButtonTouch));
 
-	MenuItemImage *pCloseItem = MenuItemImage::create(
+	_close = MenuItemImage::create(
 		"CloseNormal.png",
 		"CloseSelected.png",
 		CC_CALLBACK_1(HelloWorld::menuCloseCallback, this));
     
 //   pCloseItem->setScale(visibleSize.width / 960.0f, visibleSize.height / 640.0f);
-    SCALENODE_Y(pCloseItem);
-	pCloseItem->setPosition(Point(origin.x + visibleSize.width - pCloseItem->getContentSize().width*pCloseItem->getScale() / 2,
-		origin.y + pCloseItem->getContentSize().height*pCloseItem->getScale() / 2));
+    SCALENODE_Y(_close);
+	_close->setPosition(Point(origin.x + visibleSize.width - _close->getContentSize().width*_close->getScale() / 2,
+		origin.y + _close->getContentSize().height*_close->getScale() / 2));
     
-    Menu* pMenu = Menu::create(pCloseItem, NULL);
+    Menu* pMenu = Menu::create(_close, NULL);
 	pMenu->setPosition(Point::ZERO);
 	this->addChild(pMenu, kindexFloor+1);
 
@@ -426,6 +426,7 @@ void HelloWorld::StartGame(){
     updateScoreLabel();
 	_startLabel->setVisible(false);
     _settingsLabel->setVisible(false);
+    _close->setVisible(false);
     _robin->setPositionY(_middleY);
 	_robin->State = kRobinStateMoving;
 	_robin->setPositionY(_middleY);
@@ -455,6 +456,7 @@ void HelloWorld::ReEnableAfterGameOver(float dt){
 	_gameOverLabel->setVisible(false);
 	_startLabel->setVisible(true);
     _settingsLabel->setVisible(true);
+    _close->setVisible(true);
 	_acceptTouches = true;
 }
 
