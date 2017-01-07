@@ -99,7 +99,7 @@ bool SplashScene::init()
 	theLabel2->setColor(Color3B::RED);
 	this->addChild(theLabel2, kindexRobin);
  */
-    Label *theLabel = Label::createWithTTF("SIMPLE FLAPPY ROBIN", kFontName1, 50);
+    Label *theLabel = Label::createWithTTF("Jumping Dooly", kFontName1, 50);
     theLabel->setPosition(Vec2(visibleSize.width / 2, visibleSize.height *1.5f / 2 +
                                visibleSize.height / 6));
     theLabel->setColor(Color3B::BLUE);

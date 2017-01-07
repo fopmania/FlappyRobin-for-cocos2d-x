@@ -34,7 +34,7 @@ void BGObject::Stop() {
 void BGObject::SetSpeedAndWidth(const float speed, const float width) {
 	_speed = speed;
 	_screenWidth = width;
-	_xOffSet = this->getBoundingBox().size.width;
+	_xOffSet = this->getBoundingBox().size.width*0.5f + (rand()%150) ;
 }
 
 void BGObject::ReachedDestination() {

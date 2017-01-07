@@ -173,6 +173,7 @@ void HelloWorld::gameUpdate(float dt) {
 			SpawnNewTubes();
 		}
 		if (_robin->getPositionY() < _floorBottom) {
+            _robin->setPosition(Vec2(_robin->getPositionX(), _floorBottom));
 			_gameOver = true;
 		}
 		else {
@@ -216,7 +217,6 @@ void HelloWorld::gameUpdate(float dt) {
 bool HelloWorld::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event) {
 	//CCLOG("HelloWorld::onTouchBegan x:%f y:%f", touch->getLocation().x, touch->getLocation().y);
 	//CCLOG("gameOver = %d", _gameOver);
-	if (!_acceptTouches)		return	false;
 
 	Point tp = Point(touch->getLocation().x, touch->getLocation().y);
 	if (_settingsLabel->getBoundingBox().containsPoint(tp)){
@@ -224,6 +224,7 @@ bool HelloWorld::onTouchBegan(cocos2d::Touch *touch, cocos2d::Event *event) {
         return  true;
 	}
 
+    if (!_acceptTouches)		return	false;
 
 	if (_gameOver == true) {
 		StartGame();
@@ -289,8 +290,8 @@ void HelloWorld::CreateClouds() {
 //	GETFILENAME(FileName, 32, "Cloud", ".png");
 	sprintf(FileName, kFileCloud);
 
-	AddCloud(kCloudSpeedSlow, Vec2(700, 610), kCloudScaleSlow, kindexCloudSlow, FileName);
-	AddCloud(kCloudSpeedSlow, Vec2(150, 570), kCloudScaleSlow, kindexCloudSlow, FileName);
+	AddCloud(kCloudSpeedSlow, Vec2(700, 590), kCloudScaleSlow, kindexCloudSlow, FileName);
+	AddCloud(kCloudSpeedSlow, Vec2(150, 550), kCloudScaleSlow, kindexCloudSlow, FileName);
 
 	AddCloud(kCloudSpeedFast, Vec2(150, 300), kCloudScaleFast, kindexCloudFast, FileName);
 	AddCloud(kCloudSpeedFast, Vec2(400, 500), kCloudScaleFast, kindexCloudFast, FileName);
@@ -299,13 +300,13 @@ void HelloWorld::CreateClouds() {
 	sprintf(FileName, kFileMount);
 //	GETFILENAME(FileName, 32, "Mount", ".png");
 	AddCloud(kMountSpeed, Vec2(300, 170), kMountScale, kindexMount, FileName);
-	AddCloud(kMountSpeed, Vec2(800, 170), kMountScale, kindexMount, FileName);
+	AddCloud(kMountSpeed, Vec2(900, 170), kMountScale, kindexMount, FileName);
 
 	sprintf(FileName, kFileTree);
 //	GETFILENAME(FileName, 32, "Tree", ".png");
-	AddCloud(kTreeSpeed, Vec2(128, 72), kTreeScale, kindexTree, FileName);
-	AddCloud(kTreeSpeed, Vec2(624, 72), kTreeScale, kindexTree, FileName);
-	AddCloud(kTreeSpeed, Vec2(864, 72), kTreeScale, kindexTree, FileName);
+	AddCloud(kTreeSpeed, Vec2(128, 32), kTreeScale, kindexTree, FileName);
+	AddCloud(kTreeSpeed, Vec2(424, 55), kTreeScale, kindexTree, FileName);
+	AddCloud(kTreeSpeed, Vec2(764, 40), kTreeScale, kindexTree, FileName);
 }
 
 
@@ -413,7 +414,7 @@ Tube *HelloWorld::getNextTube() {
 	Size visibleSize = Director::getInstance()->getVisibleSize();
 	Tube *newTube = Tube::createWithFileName(kFileTube);
 	SCALENODE_Y(newTube);
-	newTube->Initialise(kTreeSpeed, visibleSize.width);
+	newTube->Initialise(kTubeSpeed, visibleSize.width);
 	this->addChild(newTube, kindexTube);
 	_tubes.pushBack(newTube);
 	return newTube;

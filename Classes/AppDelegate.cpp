@@ -30,7 +30,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
     if(!glview) {
-        glview = GLViewImpl::create("Simple Flappy Robbin");
+        glview = GLViewImpl::create("Junmping Dooly");
         director->setOpenGLView(glview);
     }
 

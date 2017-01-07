@@ -6,10 +6,10 @@
 #define kindexFloor 40
 #define kindexTube 35
 #define kindexRobin 100
-#define kindexCloudFast 20
 #define kindexCloudSlow 10
-#define kindexTree 50
-#define kindexMount 30
+#define kindexMount 20
+#define kindexCloudFast 30
+#define kindexTree 150
 
 #define kRobinStateMoving 0
 #define kRobinStateStopped 1
@@ -27,10 +27,11 @@
 #define kMountScale 0.8
 #define kTreeScale 1.0
 
-#define kCloudSpeedSlow 30.0
-#define kCloudSpeedFast 65.0
-#define kMountSpeed 50.0
-#define kTreeSpeed  100.0
+#define kCloudSpeedSlow 20.0
+#define kCloudSpeedFast 60.0
+#define kMountSpeed 40.0
+#define kTubeSpeed  100.0
+#define kTreeSpeed  200.0
 
 #define kRobinStateMoving 0
 #define kRobinStateStopped 1
@@ -73,7 +74,7 @@
 #define kSplash         "Kratos.png"
 #define kFileBG			"BG-HD.png"
 #define kFileFloor		"Floor-HD.png"
-#define kFileRobin		"Robin-HD.png"
+#define kFileRobin		"dooli.png"
 #define kFileCloud		"Cloud-HD.png"
 #define kFileMount		"Mount-HD.png"
 #define kFileTree		"Tree-HD.png"
